@@ -31,10 +31,11 @@ Menggunakan dua jenis *stack*:
 ## Cara Menggunakan
 1. Kompilasi program:
    gcc parsing_expression.c -o parsing_expression
-2. Jalankan program
+2. Jalankan program:
    ./parsing_expression
 3. Pilih menu konversi (1-6)
 4. Masukkan ekspresi sesuai jenis konversi yang dipilih
+5. Program akan menampilkan hasil konversi
 
 ## Contoh input
 - Pilih konversi: 1
