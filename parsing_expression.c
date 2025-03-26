@@ -179,3 +179,126 @@ char* postfixToInfix(const char *postfix) {
     freeStringStack(stack);
     return result;
 }
+
+char* infixToPrefix(const char *infix) {
+    char *reversed = reverseString(infix);
+    swapParentheses(reversed);
+    char *postfix = infixToPostfix(reversed);
+    free(reversed);
+    char *prefix = reverseString(postfix);
+    free(postfix);
+    return prefix;
+}
+
+char* prefixToInfix(const char *prefix) {
+    char *reversed = reverseString(prefix);
+    StringStack *stack = createStringStack();
+    int len = strlen(reversed);
+
+    for (int i = 0; i < len; i++) {
+        char c = reversed[i];
+        if (c == ' ') continue;
+        if (isalnum(c)) {
+            char operand[2] = {c, '\0'};
+            pushString(stack, operand);
+        } else if (isOperator(c)) {
+            char *op1 = popString(stack);
+            char *op2 = popString(stack);
+            char *newExpr = (char*)malloc(strlen(op1) + strlen(op2) + 4);
+            sprintf(newExpr, "(%s%c%s)", op1, c, op2);
+            pushString(stack, newExpr);
+            free(op1);
+            free(op2);
+            free(newExpr);
+        }
+    }
+    free(reversed);
+    char *result = popString(stack);
+    freeStringStack(stack);
+    return result;
+}
+
+char* prefixToPostfix(const char *prefix) {
+    char *reversed = reverseString(prefix);
+    StringStack *stack = createStringStack();
+    int len = strlen(reversed);
+
+    for (int i = 0; i < len; i++) {
+        char c = reversed[i];
+        if (c == ' ') continue;
+        if (isalnum(c)) {
+            char operand[2] = {c, '\0'};
+            pushString(stack, operand);
+        } else if (isOperator(c)) {
+            char *op1 = popString(stack);
+            char *op2 = popString(stack);
+            char *newExpr = (char*)malloc(strlen(op1) + strlen(op2) + 2);
+            sprintf(newExpr, "%s%s%c", op1, op2, c);
+            pushString(stack, newExpr);
+            free(op1);
+            free(op2);
+            free(newExpr);
+        }
+    }
+    free(reversed);
+    char *result = popString(stack);
+    freeStringStack(stack);
+    return result;
+}
+
+char* postfixToPrefix(const char *postfix) {
+    StringStack *stack = createStringStack();
+    int len = strlen(postfix);
+
+    for (int i = 0; i < len; i++) {
+        char c = postfix[i];
+        if (c == ' ') continue;
+        if (isalnum(c)) {
+            char operand[2] = {c, '\0'};
+            pushString(stack, operand);
+        } else if (isOperator(c)) {
+            char *op2 = popString(stack);
+            char *op1 = popString(stack);
+            char *newExpr = (char*)malloc(strlen(op1) + strlen(op2) + 2);
+            sprintf(newExpr, "%c%s%s", c, op1, op2);
+            pushString(stack, newExpr);
+            free(op1);
+            free(op2);
+            free(newExpr);
+        }
+    }
+    char *result = popString(stack);
+    freeStringStack(stack);
+    return result;
+}
+
+int main() {
+    int choice;
+    char expression[100];
+    char *result;
+
+    printf("Pilih konversi:\n");
+    printf("1. Infix ke Postfix\n2. Postfix ke Infix\n3. Infix ke Prefix\n");
+    printf("4. Prefix ke Infix\n5. Prefix ke Postfix\n6. Postfix ke Prefix\n");
+    printf("Masukkan pilihan: ");
+    scanf("%d", &choice);
+    getchar();
+
+    printf("Masukkan ekspresi: ");
+    fgets(expression, sizeof(expression), stdin);
+    expression[strcspn(expression, "\n")] = '\0';
+
+    switch (choice) {
+        case 1: result = infixToPostfix(expression); break;
+        case 2: result = postfixToInfix(expression); break;
+        case 3: result = infixToPrefix(expression); break;
+        case 4: result = prefixToInfix(expression); break;
+        case 5: result = prefixToPostfix(expression); break;
+        case 6: result = postfixToPrefix(expression); break;
+        default: printf("Pilihan tidak valid.\n"); return 1;
+    }
+
+    printf("Hasil: %s\n", result);
+    free(result);
+    return 0;
+}
