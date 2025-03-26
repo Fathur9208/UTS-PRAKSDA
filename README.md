@@ -35,8 +35,9 @@ Menggunakan dua jenis *stack*:
    ./parsing_expression
 3. Pilih menu konversi (1-6)
 4. Masukkan ekspresi sesuai jenis konversi yang dipilih
-Contoh input:
-Pilih konversi: 1
-Masukkan ekspresi: (A+B)*C-D
-Hasil: AB+C*D-
+
+## Contoh input
+- Pilih konversi: 1
+- Masukkan ekspresi: (A+B)*C-D
+- Hasil: AB+C*D-
 
