@@ -40,33 +40,32 @@ Program ini menyediakan 6 jenis konversi:
  
 ## Detail Konversi
 1. Infix → Postfix
-Algoritma: Shunting Yard
-Handle prioritas operator
-Keluaran tanpa tanda kurung
+- Algoritma: Shunting Yard
+- Handle prioritas operator
+- Keluaran tanpa tanda kurung
 
 2. Postfix → Infix
-Format: (operand1 operator operand2)
-Tanda kurung otomatis ditambahkan
+- Format: (operand1 operator operand2)
+- Tanda kurung otomatis ditambahkan
 
 3. Infix → Prefix
-Balikkan string Infix
-Tukar tanda kurung ( ↔ )
-Konversi ke Postfix
-Balikkan hasil
+- Balikkan string Infix
+- Tukar tanda kurung ( ↔ )
+- Konversi ke Postfix
+- Balikkan hasil
 
 4. Prefix → Infix
-Balikkan string Prefix
-Bangun ekspresi dari kanan ke kiri
-Tambahkan tanda kurung
+- Balikkan string Prefix
+- Bangun ekspresi dari kanan ke kiri
+- Tambahkan tanda kurung
 
 5. Prefix → Postfix
-Balikkan string Prefix
-Bangun ekspresi Postfix dengan stack
+- Balikkan string Prefix
+- Bangun ekspresi Postfix dengan stack
 
 6. Postfix → Prefix
-Algoritma:
-Push operand ke stack
-Saat menemukan operator:
+- Algoritma: Push operand ke stack
+- Saat menemukan operator:
 - Pop 2 operand teratas (op2 lalu op1)
 - Gabungkan menjadi operator + op1 + op2
 - Push hasil ke stack
