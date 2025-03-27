@@ -89,9 +89,9 @@ Format: operator operand1 operand2
 
 ## Contoh Konversi
 Jenis Input Output
-Infix→Postfix A+B*C ABC*+
-Postfix→Infix AB+C* (A+B)*C
-Infix→Prefix (A+B)*C *+ABC
-Prefix→Infix *+AB-C ((A+B)*(-C))
-Prefix→Postfix +*AB-C AB*C-+
-Postfix→Prefix AB*C+ +*ABC
+1. Infix→Postfix A+B*C ABC*+
+2. Postfix→Infix AB+C* (A+B)*C
+3. Infix→Prefix (A+B)*C *+ABC
+4. Prefix→Infix *+AB-C ((A+B)*(-C))
+5. Prefix→Postfix +*AB-C AB*C-+
+6. Postfix→Prefix AB*C+ +*ABC
