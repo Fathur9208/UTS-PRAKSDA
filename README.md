@@ -82,10 +82,10 @@ Jenis Input Output
 
 ## Catatan
 Asumsi:
-Operand berupa karakter alfanumerik tunggal (misal: A, b, 1)
-Input valid dan tidak mengandung spasi
-Operator yang didukung: +, -, *, /
+- Operand berupa karakter alfanumerik tunggal (misal: A, b, 1)
+- Input valid dan tidak mengandung spasi
+- Operator yang didukung: +, -, *, /
 
 Batasan:
-Tidak mendukung operator unary (misal: -5)
-Tidak validasi ekspresi tidak lengkap (misal: A+)
+- Tidak mendukung operator unary (misal: -5)
+- Tidak validasi ekspresi tidak lengkap (misal: A+)
