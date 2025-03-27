@@ -41,4 +41,57 @@ Menggunakan dua jenis *stack*:
 - Pilih konversi: 1
 - Masukkan ekspresi: (A+B)*C-D
 - Hasil: AB+C*D-
+- 
+## Detail Konversi
+1. Infix → Postfix
+Menggunakan algoritma Shunting Yard:
 
+Handle operator precedence
+
+Penanganan tanda kurung
+
+Output tanpa parentheses
+
+2. Postfix → Infix
+Bangun ekspresi dengan format (operand1 operator operand2)
+
+Tambahkan parentheses otomatis
+
+3. Infix → Prefix
+Reverse string infix
+
+Tukar tanda kurung
+
+Konversi ke postfix
+
+Reverse hasil
+
+4. Prefix → Infix
+Reverse string prefix
+
+Bangun ekspresi dari kanan ke kiri
+
+Tambahkan parentheses
+
+5. Prefix ↔ Postfix
+Menggunakan kombinasi:
+
+Double reversal untuk mempertahankan urutan operand
+
+Stack string untuk konstruksi ekspresi
+
+6. Postfix → Prefix
+Operator gabung 2 operand sebelumnya
+
+Format: operator operand1 operand2
+
+
+
+## Contoh Konversi
+Jenis Input Output
+Infix→Postfix A+B*C ABC*+
+Postfix→Infix AB+C* (A+B)*C
+Infix→Prefix (A+B)*C *+ABC
+Prefix→Infix *+AB-C ((A+B)*(-C))
+Prefix→Postfix +*AB-C AB*C-+
+Postfix→Prefix AB*C+ +*ABC
